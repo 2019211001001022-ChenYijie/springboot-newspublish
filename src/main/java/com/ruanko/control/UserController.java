@@ -23,7 +23,7 @@ public class UserController {
         Boolean result=userService.findByUsernameAndPassword(user.getUsername(),user.getPassword());
         if(result)
 //            return "redirect:/index";
-            return "/drivers";
+            return "driver/driverlist";
         else
             return "user/login";
     }

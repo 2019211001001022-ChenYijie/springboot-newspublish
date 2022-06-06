@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示司机信息详情</title>
+</head>
+<body>
+<!--<table border="1" th:each="driver:${driver}">-->
+<!--    显示司机信息内容-->
+<!--    <tr>-->
+<!--        司机姓名:<td th:text="${driver.realname}"></td>-->
+<!--        司机电话:<td th:text="${driver.phone}">-->
+<!--        汽车型号:<td th:text="${driver.cartype}">-->
+<!--    </tr>-->
+<!--</table>-->
+<div align="center" style="color: #4cae4c;font-size: 20px">
+<ol th:each="driver:${driver}">
+    <li >司机姓名:<td th:text="${driver.realname}"></li>
+    <li>司机电话:<td th:text="${driver.phone}"></li>
+    <li> 汽车型号:<td th:text="${driver.cartype}"></li>
+</ol>
+</div>
+<div align="center" style="color: #2e6da4;font-size:25px">
+    <a th:href="@{/todrivershow}" >返回</a><br>
+</div>
+</body>
+</html>
