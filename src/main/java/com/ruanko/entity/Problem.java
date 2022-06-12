@@ -15,17 +15,16 @@ public class Problem {
     private String content;
     private String title;
     private String resolvent;
-//    @CreatedDate
-//    private Date createTime;
-//
-//    public Date getCreateTime() {
-//        return createTime;
-//    }
-//
-//    public void setCreateTime(Date createTime) {
-//        this.createTime = createTime;
-//    }
 
+    private String createTime;
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
     public String getResolvent() {
         return resolvent;
     }
@@ -57,6 +56,8 @@ public class Problem {
     public void setContent(String content) {
         this.content =content;
     }
+
+
 
 
 

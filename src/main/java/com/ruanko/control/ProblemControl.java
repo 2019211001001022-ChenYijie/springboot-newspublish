@@ -9,27 +9,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.time.LocalDateTime;
-import java.time.temporal.TemporalField;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 @Controller
 public class ProblemControl {
-
+String createTime;
     @Autowired
     ProblemService problemService;
     @RequestMapping(value = "/toAddProblem",method = RequestMethod.GET)
-    public String toAddProblem(){
+    public String toAddProblem(Model model){
+        Date date = new Date();
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
+        createTime = dateFormat.format(date);
+        model.addAttribute("createTime",createTime);
         return "customerService/addProblem";
     }
 
     @RequestMapping(value = "/ProblemAdd",method = RequestMethod.POST)
-    public String ProblemAdd(Problem problem, Model model){
+    public String ProblemAdd(Problem problem){
+        problem.setCreateTime(createTime);
         problemService.add(problem);
-//        String date= String.valueOf(problem.getCreatetime());
-//        String date= String.valueOf(LocalDateTime.now().get((TemporalField) problem.getCreatetime()));
-//        model.addAttribute("date",date);
         return "success";
     }
 }
